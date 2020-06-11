@@ -6,14 +6,18 @@ import {
 } from 'react-icons/md';
 import './TodoListItem.scss';
 
-const TodoListItem = () => {
+const TodoListItem = ({ todo, onRemove, onToggle }) => {
+  const { id, text, checked } = todo;
   return (
     <div className="TodoListItem">
-      <div className="checkBox">
-        <MdCheckBoxOutlineBlank />
-        <div className="text">things to do</div>
+      <div
+        className={`checkBox ${checked ? 'checked' : ''}`}
+        onClick={() => onToggle(id)}
+      >
+        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+        <div className="text">{text}</div>
       </div>
-      <div className="remove">
+      <div className="remove" onClick={() => onRemove(id)}>
         <MdRemoveCircleOutline />
       </div>
     </div>
