@@ -60,6 +60,10 @@ function App() {
       <TodoTemplate>
         <TodoInsert onInsert={onInsert} />
         <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
+        <div id="total">
+          <div>total duty</div>
+          <div>{todos.length}</div>
+        </div>
       </TodoTemplate>
     </React.Fragment>
   );
